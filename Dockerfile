@@ -10,9 +10,8 @@
 FROM ruby:2.2.3
 
 ENV APP_DIR /usr/src/app
+RUN mkdir -p $APP_DIR
 WORKDIR $APP_DIR
-RUN bundle config --global frozen 1 \
-    && mkdir -p $APP_DIR
 
 COPY . $APP_DIR
 RUN bundle install
