@@ -1,5 +1,19 @@
 # Pivotal Plugins for New Relic Monitoring
 
+## Using the docker image
+
+A docker image for this plugin is provided.  To pull the image use the following command.
+
+```
+docker pull nowait/newrelic-rabbit-agent:1.0
+```
+
+This image is very opinionated in the way it must be used.  The image is expecting that a volume with a file named newrelic_config.yml to be mounted to the following location `/usr/src/app/config/newrelic_config.yml`.
+
+Please see [this](./Dockerfile.config) for an example of how to create another docker image from which to mount your configuration file into the main image.  For this example you would just need to mount the volumes from the config image into the `nowait/newrelic-rabbit-agent` image and the container will be able to properly read the config.
+
+## Project Status
+
 *This project is unsupported* - Please see "Support" section below for more details
 
 This README describes how to install and configure the Pivotal Plugins for New Relic.  For convenenience, the procedure installs all plugins at once. 
